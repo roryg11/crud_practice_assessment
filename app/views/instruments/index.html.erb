@@ -1,0 +1,24 @@
+<div class="ui segment">
+  <div class="header">
+    <h1>INSTRUMENTS</h1>
+  </div>
+</div>
+
+<div class="ui button">
+  <%= link_to "New Instrument", new_instrument_path %>
+</div>
+
+<% @instruments.each do |instrument| %>
+  <div class="ui card">
+    <div class="content">
+      <div class="header">
+        <h3><%= link_to instrument.name, instrument_path(instrument) %></h3>
+      </div>
+      <p><%= instrument.price %></p>
+      <p><%= instrument.group %></p>
+      <div class="ui red button small">
+        <%= link_to "Delete", instrument_path(instrument), method: :delete %>
+      </div>
+    </div>
+  </div>
+<% end %>
